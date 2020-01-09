@@ -8,7 +8,9 @@ module.exports = {
   },
   use: [
     airbnb(),
-    reactComponents(),
+    reactComponents({
+      // components: 'components/ReactEditableInput'
+    }),
     jest(),
   ],
 };
