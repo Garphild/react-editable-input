@@ -11,8 +11,8 @@ class ReactEditableInput extends Component {
   };
 
   onToggleEditMode = () => {
-    const { toggleEditMode } = this.props;
-    if (toggleEditMode) {
+    const { toggleEditMode, editMode } = this.props;
+    if (toggleEditMode && !editMode) {
       toggleEditMode();
     }
   };
@@ -21,7 +21,7 @@ class ReactEditableInput extends Component {
     const { onEditEnd } = this.props;
     if (event.key === 'Enter') {
       if (onEditEnd) {
-        onEditEnd();
+        onEditEnd(event.target.value);
       }
     }
   };
@@ -36,7 +36,7 @@ class ReactEditableInput extends Component {
     return (
       // eslint-disable-next-line jsx-a11y/no-static-element-interactions
       <div
-        className={rootContainerClass + (editMode ? ' ' + rootContainerEditClass : '')}
+        className={rootContainerClass + (editMode ? (rootContainerEditClass ? ' ' + rootContainerEditClass : '') : '')}
         onClick={this.onToggleEditMode}
         onKeyPress={this.handleKeyPress}
       >
@@ -58,6 +58,7 @@ ReactEditableInput.defaultProps = {
   rootContainerClass: '',
   rootContainerEditClass: '',
   editMode: false,
+  value: '',
   changeListener: () => {},
   toggleEditMode: () => {},
   onEditEnd: () => {},
@@ -68,7 +69,7 @@ ReactEditableInput.propTypes = {
   rootContainerEditClass: PropTypes.string,
   changeListener: PropTypes.func,
   onEditEnd: PropTypes.func,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   editMode: PropTypes.bool,
   toggleEditMode: PropTypes.func,
 };

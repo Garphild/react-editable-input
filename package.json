@@ -1,12 +1,12 @@
 {
   "name": "@garphild/react-editable-input",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "author": "Serhii Kondrashov <garphild@garphild.pro>",
   "main": "build/ReactEditableInput.js",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/Garphild/react-editable-input"
+    "type": "git",
+    "url": "https://github.com/Garphild/react-editable-input"
   },
   "keywords": [
     "react",
@@ -29,12 +29,15 @@
     "@neutrinojs/airbnb": "^9.0.0",
     "@neutrinojs/jest": "^9.0.0",
     "@neutrinojs/react-components": "^9.0.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6",
     "jest": "^24",
     "neutrino": "^9.0.0",
     "prop-types": "^15",
     "react": "^16",
     "react-dom": "^16",
+    "sinon": "^8.0.4",
     "webpack": "^4",
     "webpack-cli": "^3",
     "webpack-dev-server": "^3"
