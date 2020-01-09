@@ -1,8 +1,19 @@
 {
-  "name": "react-editable-input",
+  "name": "@garphild/react-editable-input",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
+  "author": "Serhii Kondrashov <garphild@garphild.pro>",
+  "main": "build/ReactEditableInput.js",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/Garphild/react-editable-input"
+  },
+  "keywords": [
+    "react",
+    "javascript",
+    "component",
+    "input"
+  ],
   "peerDependencies": {
     "prop-types": "^15",
     "react": "^16",

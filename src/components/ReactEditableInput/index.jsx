@@ -65,10 +65,10 @@ ReactEditableInput.defaultProps = {
 
 ReactEditableInput.propTypes = {
   rootContainerClass: PropTypes.string,
+  rootContainerEditClass: PropTypes.string,
   changeListener: PropTypes.func,
   onEditEnd: PropTypes.func,
   value: PropTypes.string.isRequired,
-  rootContainerEditClass: PropTypes.string,
   editMode: PropTypes.bool,
   toggleEditMode: PropTypes.func,
 };
