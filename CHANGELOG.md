@@ -1,3 +1,8 @@
+# 1.0.5
+## Add
+* labels for text and/or input
+* enable/disable show labels for text
+* set html id property for input
 # 1.0.4
 ## Add
 * Default CSS classes

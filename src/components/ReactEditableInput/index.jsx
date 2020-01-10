@@ -36,6 +36,9 @@ class ReactEditableInput extends Component {
       useDefaultTheme,
       fullwidth,
       disabled,
+      label,
+      id,
+      showLabelAlways,
     } = this.props;
     const rcc = rootContainerEditClass ? ' ' + rootContainerEditClass : '';
     let defClass = (useDefaultTheme ? 'editable-input-container ' : '') + rootContainerClass;
@@ -50,15 +53,31 @@ class ReactEditableInput extends Component {
         onKeyPress={this.handleKeyPress}
       >
         {editMode && (
-        <input
-          type="text"
-          value={value}
-          onChange={this.onChange}
-          onBlur={this.onEditEnd}
-          disabled={disabled === true}
-        />
+          <>
+            {label ? <label htmlFor={id}>{label}</label> : null }
+            <input
+              id={id}
+              type="text"
+              value={value}
+              onChange={this.onChange}
+              onBlur={this.onEditEnd}
+              disabled={disabled === true}
+            />
+          </>
         )}
-        {!editMode && <span>{value}</span>}
+        {!editMode && (
+        <span>
+          {label && showLabelAlways
+            ? (
+              <>
+                <label htmlFor={id}>{label}</label>
+                <br />
+              </>
+            )
+            : null }
+            {value}
+        </span>
+        )}
       </div>
     );
   }
@@ -67,7 +86,10 @@ class ReactEditableInput extends Component {
 ReactEditableInput.defaultProps = {
   rootContainerClass: '',
   rootContainerEditClass: '',
+  label: null,
+  id: null,
   editMode: false,
+  showLabelAlways: true,
   value: '',
   useDefaultTheme: true,
   fullwidth: true,
@@ -87,7 +109,10 @@ ReactEditableInput.propTypes = {
   useDefaultTheme: PropTypes.bool,
   fullwidth: PropTypes.bool,
   disabled: PropTypes.bool,
+  showLabelAlways: PropTypes.bool,
   toggleEditMode: PropTypes.func,
+  label: PropTypes.string,
+  id: PropTypes.string,
 };
 
 export default ReactEditableInput;
