@@ -1,5 +1,4 @@
-Simple React component.
-Show editable field on text click.
+Simple React component. Show editable field on text click.
 
 ## Install
 `yarn add @garphild/react-editable-input`
@@ -52,6 +51,11 @@ class View extends React {
           editMode={editMode}
           changeListener={this.onEditChange}
           onEditEnd={this.onEditEnd}
+          disabled={false}
+          fullwidth={true}
+          disabled={false}
+          rootContainerClass=""
+          rootContainerEditClass=""
         />
       </>
     );
@@ -64,6 +68,10 @@ class View extends React {
 Default: ''
 
 Current text for field.
+### disabled
+Default: false
+
+Disable edit text in input
 ### rootContainerClass
 Default: ''
 
@@ -93,3 +101,17 @@ Flag for edit or plain text mode
 Default: empty function
 
 Callback fired on container click
+
+### useDefaultTheme
+Default: true
+
+Enable/disable to use default CSS theme.
+
+### fullwidth
+Default: false
+
+Stretch input to container  
+
+## Changes
+See CHANGELOG.md
+* 2019-01-10 v.1.0.4

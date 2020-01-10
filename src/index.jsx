@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
 import ReactEditableInput from './components/ReactEditableInput';
 
@@ -9,7 +9,6 @@ class Test extends React.Component {
   };
 
   toggleEditMode = () => {
-    const { editMode } = this.state;
     this.setState({
       editMode: true,
     });
@@ -26,6 +25,7 @@ class Test extends React.Component {
       value: e.currentTarget.value,
     });
   };
+
   render() {
     const {
       editMode,
@@ -33,30 +33,44 @@ class Test extends React.Component {
     } = this.state;
     return (
       <>
+        <label><b>Always close, not editable</b></label>
         <ReactEditableInput
           value={value}
         />
+        <label><b>Always opened, not editable</b></label>
         <ReactEditableInput
           value={value}
-          editMode={true}
+          editMode
         />
+        <label><b>Always opened, disabled</b></label>
+        <ReactEditableInput
+          value={value}
+          editMode
+          disabled
+        />
+        <label><b>With toggle mode</b></label>
         <ReactEditableInput
           value={value}
           toggleEditMode={this.toggleEditMode}
+          changeListener={this.onEditChange}
           editMode={editMode}
         />
+        <label htmlFor="ret-1"><b>With change listener</b></label>
         <ReactEditableInput
+          id="ret-1"
           value={value}
           toggleEditMode={this.toggleEditMode}
           editMode={editMode}
           changeListener={this.onEditChange}
         />
+        <label><b>Don't use default theme</b></label>
         <ReactEditableInput
           value={value}
           toggleEditMode={this.toggleEditMode}
           editMode={editMode}
           changeListener={this.onEditChange}
           onEditEnd={this.onEditEnd}
+          useDefaultTheme={false}
         />
       </>
     );

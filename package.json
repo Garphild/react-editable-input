@@ -1,6 +1,6 @@
 {
   "name": "@garphild/react-editable-input",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "author": "Serhii Kondrashov <garphild@garphild.pro>",
   "main": "build/ReactEditableInput.js",

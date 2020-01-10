@@ -1,6 +1,7 @@
 /* eslint-disable prefer-template */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './index.css';
 
 class ReactEditableInput extends Component {
   onChange = (e) => {
@@ -32,11 +33,19 @@ class ReactEditableInput extends Component {
       value,
       rootContainerEditClass,
       editMode,
+      useDefaultTheme,
+      fullwidth,
+      disabled,
     } = this.props;
+    const rcc = rootContainerEditClass ? ' ' + rootContainerEditClass : '';
+    let defClass = (useDefaultTheme ? 'editable-input-container ' : '') + rootContainerClass;
+    if (fullwidth) {
+      defClass += ' editable-input-fullwidth';
+    }
     return (
       // eslint-disable-next-line jsx-a11y/no-static-element-interactions
       <div
-        className={rootContainerClass + (editMode ? (rootContainerEditClass ? ' ' + rootContainerEditClass : '') : '')}
+        className={defClass + (editMode ? rcc : '')}
         onClick={this.onToggleEditMode}
         onKeyPress={this.handleKeyPress}
       >
@@ -46,6 +55,7 @@ class ReactEditableInput extends Component {
           value={value}
           onChange={this.onChange}
           onBlur={this.onEditEnd}
+          disabled={disabled === true}
         />
         )}
         {!editMode && <span>{value}</span>}
@@ -59,6 +69,9 @@ ReactEditableInput.defaultProps = {
   rootContainerEditClass: '',
   editMode: false,
   value: '',
+  useDefaultTheme: true,
+  fullwidth: true,
+  disabled: false,
   changeListener: () => {},
   toggleEditMode: () => {},
   onEditEnd: () => {},
@@ -71,6 +84,9 @@ ReactEditableInput.propTypes = {
   onEditEnd: PropTypes.func,
   value: PropTypes.string,
   editMode: PropTypes.bool,
+  useDefaultTheme: PropTypes.bool,
+  fullwidth: PropTypes.bool,
+  disabled: PropTypes.bool,
   toggleEditMode: PropTypes.func,
 };
 

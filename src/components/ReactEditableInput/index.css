@@ -1,0 +1,30 @@
+/** Container **/
+.editable-input-container {
+    widht: 100%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+/** Input **/
+.editable-input-container input {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    font-size: 1.5rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: .3rem .3rem;
+    /*-webkit-box-sizing: border-box; !* Safari/Chrome, other WebKit *!*/
+    /*-moz-box-sizing: border-box;    !* Firefox, other Gecko *!*/
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+/** Text **/
+.editable-input-container span {
+    font-size: 1.2rem;
+}
+
+.editable-input-fullwidth {
+    width: 100%;
+}
+
+.editable-input-fullwidth input {
+    width: 100%;
+}
